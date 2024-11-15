@@ -204,3 +204,11 @@
   background-color: #FF4500;
 }
 
+button:focus {
+    outline: none;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
