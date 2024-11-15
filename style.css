@@ -1,0 +1,206 @@
+    /* Basic reset */
+    * { margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; }
+    body 
+       {display: flex; 
+	justify-content: center; 
+	align-items: center;
+	height: 100vh; 
+	background-color: #000;
+	color: #FFD700;
+	overflow: hidden;
+	font-family: Arial, sans-serif; 
+	flex-direction: column; 
+	position: relative; }
+
+    /* Enhanced starfield background with twinkling effect */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)), url('images/Stars.png') center/cover;
+      z-index: -2;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    /* Twinkling stars animation */
+    @keyframes twinkle {
+      0% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+    
+    /* Container for logo */
+    #logo-container {
+      position: absolute;
+      top: 50px; /* Adjust as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1; /* Make sure it is above other elements */
+    }
+
+    /* Logo style */
+    #logo {
+      width: 150px; /* Adjust the size of the logo */
+      height: auto; /* Maintain aspect ratio */
+    }
+    
+    /* Centered Result Button with glow and pulse */
+    #resultButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: #FFD400;
+      color: #000;
+      font-size: 1.1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 15px #FFD400, 0 0 30px #FFD400;
+      animation: pulse 1.5s infinite alternate;
+      z-index: 2;
+    }
+
+    /* Pulse animation for the main button */
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -50%) scale(1.1); }
+    }
+	
+	/* Circular buttons container */
+	 #circle-container {
+  	 position: fixed;
+  	 top: 100%;
+  	 left: 50%;
+  	 transform: translate(-50%, 10%);
+  	 width: 200px; /* Уменьшаем радиус круга */
+  	 height: 200px; /* Уменьшаем радиус круга */
+  	 display: flex;
+  	 justify-content: center;
+  	 align-items: center;
+  	 position: relative;
+  	 z-index: 1;
+	}
+
+
+    /* Circular buttons with transformation to position them in a circle */
+    .category-btn {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #000;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+      font-size: 0.85em;
+      text-align: center;
+      box-shadow: 0 0 10px #FFD400, 0 0 20px #FFD400;
+    }
+
+    .category-btn:hover {
+      box-shadow: 0 0 20px #FF4500, 0 0 40px #FF4500;
+    }
+
+    .category-btn:nth-child(1) { transform: rotate(0deg) translateY(-150px) rotate(0deg); }
+    .category-btn:nth-child(2) { transform: rotate(45deg) translateY(-150px) rotate(-45deg); }
+    .category-btn:nth-child(3) { transform: rotate(90deg) translateY(-150px) rotate(-90deg); }
+    .category-btn:nth-child(4) { transform: rotate(135deg) translateY(-150px) rotate(-135deg); }
+    .category-btn:nth-child(5) { transform: rotate(180deg) translateY(-150px) rotate(-180deg); }
+    .category-btn:nth-child(6) { transform: rotate(225deg) translateY(-150px) rotate(-225deg); }
+    .category-btn:nth-child(7) { transform: rotate(270deg) translateY(-150px) rotate(-270deg); }
+    .category-btn:nth-child(8) { transform: rotate(315deg) translateY(-150px) rotate(-315deg); }
+    /* Show animation with slight zoom */
+    .show {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Active Button Style */
+    .active { background-color: #FFD400; box-shadow: 0 0 20px #FFD400, 0 0 40px #FFD400; }
+    
+    /* Стили для изображений внутри кнопок */
+.category-btn img {
+  transition: filter 0.3s ease;
+}
+
+/* Применение фильтров для получения черного цвета */
+.category-btn.active img {
+  filter: brightness(0) invert(0);
+}
+
+    /* Achievement Display with glow */
+    #badge-name {
+      margin-top: 40px;
+      font-size: 1.4em;
+      color: #FFD700;
+      text-align: center;
+      text-shadow: 0 0 10px #FFD400, 0 0 20px #FFD400;
+      position: relative;
+      top: 200px;
+    }
+    
+    /* Modal background */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #FFD700;
+  box-shadow: 0 0 10px #FFD400, 0 0 20px #FFD400;
+  max-width: 80%; /* Ограничивает ширину на мобильных устройствах */
+  width: 400px; /* Задает фиксированную ширину для более крупных экранов */
+  margin: 0 10px; /* Добавляет отступы по бокам */
+}
+
+/* Modal text */
+#achievement-text {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #FFD700;
+}
+
+/* Restart button inside modal */
+.modal-button {
+  padding: 10px 20px;
+  background-color: #FFD400;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  background-color: #FF4500;
+}
+

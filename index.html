@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Тип студента ИИМРТ</title>
+  <link rel="icon" href="images/logo.svg" type="image/x-icon">
+
+</head>
+<header>
+  <!-- Logo -->
+  <div id="logo-container">
+    <img src="images/logo.svg" alt="Logo" id="logo">
+  </div>
+</header>
+<div>
+  <!-- Result Button -->
+  <div id="resultButton" class="get-result-btn">Узнать результат</div>
+<div>
+<body>
+<div id="circle-container">
+  <!-- Choice Buttons (Circle Layout) -->
+  <div id="btn1" class="category-btn" data-category="social_rights">
+    <img src="images/social_rights.svg" alt="Social Rights" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn2" class="category-btn" data-category="recreation">
+    <img src="images/recreation.svg" alt="Отдых и досуг" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn3" class="category-btn" data-category="discounts">
+    <img src="images/discounts.svg" alt="Скидки" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn4" class="category-btn" data-category="events">
+    <img src="images/events.svg" alt="Мероприятия" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn5" class="category-btn" data-category="tutors">
+    <img src="images/tutors.svg" alt="Тьюторы" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn6" class="category-btn" data-category="kap">
+    <img src="images/CAF.svg" alt="КАП" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn7" class="category-btn" data-category="professional_dev">
+    <img src="images/development.svg" alt="Профразвитие" style="width: 60px; height: 60px;">
+  </div>
+  <div id="btn8" class="category-btn" data-category="union_leaders">
+    <img src="images/union_reps.svg" alt="Профорги" style="width: 60px; height: 60px;">
+  </div>
+</div>
+<!-- Modal for displaying the achievement -->
+<div id="achievement-modal" class="modal">
+  <div class="modal-content">
+    <span id="achievement-text">Ваш тип студента: Ачивка</span>
+    <button id="restart-button" class="modal-button">Пройти заново</button>
+  </div>
+</div>
+
+</body>
+<footer>
+<!-- Achievement Display -->
+  <div id="badge-name"></div>
+</footer>
+</html>
